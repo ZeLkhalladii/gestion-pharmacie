@@ -9,9 +9,6 @@ public class Main {
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		
-		
-		
-		
 		ArrayList<Client> arrayClient = new ArrayList<Client>();
 		ArrayList<Medicament> arrayMedicament = new ArrayList<Medicament>();
 		ArrayList<Pharmacien> arrayPharmacien = new ArrayList<Pharmacien>();
@@ -47,6 +44,7 @@ public class Main {
 					switch(yn) {
 					case 'Y':
 						while(yn == 'Y') {
+							
 							Client clientObj = new Client();
 
 							int id;
@@ -74,6 +72,15 @@ public class Main {
 							badge = scanner.nextInt();
 							clientObj.setBadge(badge);
 							
+							boolean isFidel = clientObj.getFidele();
+							
+							if(clientObj.getBadge() >= 3) {
+								clientObj.setFidele(true);
+							}
+							else {
+								clientObj.setFidele(false);
+							}
+							
 							arrayClient.add(clientObj);
 							
 							System.out.print("Add another client? y/n : ");
@@ -93,7 +100,7 @@ public class Main {
 					
 					case 3:
 						System.out.println("entrer identifiere du client pour modifier");
-						int clientId = scanner.nextInt();
+						int clientId = scanner.nextInt() -1;
 						
 						Client clientObj = new Client();
 						
@@ -127,9 +134,11 @@ public class Main {
 					
 					case 4:
 						System.out.println("tapez le id d'utilisateur pour suprimez");
-						int deleteClient = scanner.nextInt();
 						
-						arrayClient.remove(deleteClient);
+						id = scanner.nextInt() - 1;
+						
+						arrayClient.remove(id);
+						
 					break;
 				}
 			    break;
@@ -187,13 +196,17 @@ public class Main {
 						break;
 						
 						case 2:
+							
 							for(Medicament medicament: arrayMedicament) {
 								System.out.println(medicament.toString());
 							}
 						break;
 						
 						case 3:
-							int medicamentId = scanner.nextInt();
+							
+							System.out.println("entrer identifiere du médicament pour modifier");
+
+							int medicamentId = scanner.nextInt() -1;
 							
 							Medicament medicamentObj  = new Medicament();
 							
@@ -221,10 +234,12 @@ public class Main {
 						break;
 						
 						case 4:
-							System.out.println("tapez le id d'utilisateur pour suprimez");
-							int deleteMedicament = scanner.nextInt();
+							System.out.println("tapez le id du médicament pour suprimez");
 							
-							arrayMedicament.remove(deleteMedicament);
+							
+							id = scanner.nextInt() -1;
+							
+							arrayMedicament.remove(id);
 						break;
 		    }
 			    break;
@@ -240,7 +255,7 @@ public class Main {
 					switch(inputP) {
 						case 1:
 
-						System.out.print("Add new client? (Y/N) : ");
+						System.out.print("Add new pharmacien ? (Y/N) : ");
 						char yn = scanner.next().charAt(0);
 
 						switch(yn) {
@@ -289,7 +304,8 @@ public class Main {
 						
 						case 3:
 							System.out.println("entrer identifiere du pharmacien pour modifier");
-							int pharmacienId = scanner.nextInt();
+							
+							int pharmacienId = scanner.nextInt() -1;
 							
 							Pharmacien pharmacienObj  = new Pharmacien();
 							
@@ -317,10 +333,11 @@ public class Main {
 						break;
 						
 						case 4:
-							System.out.println("tapez le id d'utilisateur pour suprimez");
-							int deletePharmacien = scanner.nextInt();
+							System.out.println("tapez le id du pharmacien pour suprimez");
 							
-							arrayPharmacien.remove(deletePharmacien);
+							id = scanner.nextInt() -1;
+							
+							arrayPharmacien.remove(id);
 						break;
 					}
 					
@@ -331,8 +348,9 @@ public class Main {
 			    	Quit = true;
 			    break;
 		    }
+		    
 		}
 	
-	  }
-
-}
+	 }
+	
+ }

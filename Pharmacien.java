@@ -3,13 +3,8 @@ package PharmaciGestion;
 public class Pharmacien extends Admin{
 
 	
-	
-	public Pharmacien() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public void add(Pharmacien pharmacien) {
-		// TODO Auto-generated method stub
-		
+	@Override
+	public String toString() {
+		return "Client [getId() : " + getId() + ", getNom() : " + getNomP() + ", getTele : " + getTele()+ "]";
 	}
 }

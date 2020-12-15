@@ -20,7 +20,7 @@ public class Medicament extends Admin{
 	
 	@Override
 	public String toString() {
-		return "Client [getdescription()=" + getDescription() + ", getprix()=" + getPrix() + ", getId()=" + getId() + ", getNom()=" + getNomP() + "]";
+		return "Client [getId() : " + getId() + ", getNom() : " + getNomP() + ", getdescription() : " + getDescription() + ", getprix() : " + getPrix() +  "]";
 	}
 	
 }
